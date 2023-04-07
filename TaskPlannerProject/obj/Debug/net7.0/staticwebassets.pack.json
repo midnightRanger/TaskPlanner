@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\TaskPlannerProject.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\css\\modal.css",
+      "PackagePath": "staticwebassets\\css\\modal.css"
+    },
+    {
       "Id": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\css\\signin.css",
       "PackagePath": "staticwebassets\\css\\signin.css"
     },

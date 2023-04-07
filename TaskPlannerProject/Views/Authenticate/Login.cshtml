@@ -19,16 +19,16 @@
 <body class="text-center bg-dark">
 <div class="alert alert-success margin-md" asp-validation-summary="ModelOnly"> </div>    
 <div class="form-signin">
-  <form>
+  <form asp-action="Login" asp-controller="Authenticate" method="post">
      <i style="font-size: 80px" class="bi bi-check-all text-light" ></i>
     <h1 class="h3 mb-3 fw-normal text-light">Please sign in</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
+      <input type="email" asp-for="Email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" asp-for="Password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
 
@@ -39,15 +39,11 @@
     </div>
     <input style="width: 100%; margin-bottom: 10px;" class="btn btn-lg btn-light btn-block" type="submit" value="Sign in"/>
 
-    <a style="width: 100%;" method="get" class="btn btn-lg btn-light btn-block" type="submit">Register</a>
+    <a style="width: 100%;" asp-action="Register" asp-controller="Authenticate" method="get" class="btn btn-lg btn-light btn-block" type="submit">Register</a>
 
     <p class="mt-5 mb-3 text-muted">© 2023</p>
   </form>
 </div>
-
-
-    
-  
 
 </body>
 

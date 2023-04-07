@@ -11,7 +11,7 @@ public class Task
     public TaskPriority TaskPriority { get; set; }
     public TaskList TaskList { get; set; }
     public int UserId { get; set; }
-    public User? User { get; set; } = new(); 
+    public User? User { get; set; }
     
     public List<Tag> Tags { get; set; } = new();
     

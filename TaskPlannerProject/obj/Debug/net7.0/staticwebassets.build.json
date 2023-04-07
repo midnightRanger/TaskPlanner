@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PprMM/ngSW1KnLY73sncasyxL1yOwy8YEZ6IIN96AyI=",
+  "Hash": "/YzvPQqIoy0fAqSvq1MvDtkppvYXhNkETpNBMzV80lA=",
   "Source": "TaskPlannerProject",
   "BasePath": "_content/TaskPlannerProject",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\TaskPlannerProject.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\css\\modal.css",
+      "SourceId": "TaskPlannerProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\",
+      "BasePath": "_content/TaskPlannerProject",
+      "RelativePath": "css/modal.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\modal.css"
     },
     {
       "Identity": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\css\\signin.css",
