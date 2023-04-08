@@ -47,6 +47,7 @@ public class DbContext : Microsoft.EntityFrameworkCore.DbContext
     public DbSet<Task> Task { get; set; } = null!;
     public DbSet<Goal> Goal { get; set; } = null!;
     public DbSet<Tag> Tag { get; set; } = null!;
+    public DbSet<Plan> Plan { get; set; } = null!; 
     public DbSet<User> User { get; set; } = null!;
     public DbSet<Role> Role { get; set; } = null!;
 }

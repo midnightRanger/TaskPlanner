@@ -4,81 +4,78 @@
 }
 
 <head>
-  <link rel="stylesheet" href="~/css/modal.css"/>
-  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="~/css/modal.css"/>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
 </head>
 
-<div class="alert alert-success margin-md" asp-validation-summary="ModelOnly"> </div>  
+<div class="alert alert-success margin-md" asp-validation-summary="ModelOnly"> </div>
 <div class="text-center">
     <h1 class="display-4">Make the task list, that you want to do</h1>
 </div>
 <form asp-action="AddTask" asp-controller="Home" method="post">
-<div class="input-group mb-3" aria-describedby="taskHelp">
-  <input type="text" asp-for="Title" name="Title" class="form-control" placeholder="Make a clean.."  aria-label="Task content" aria-describedby="basic-addon2">
-  <div class="input-group-append">
-    <input type="submit" class="btn btn-success" />
-  </div>
-  <small id="taskHelp" class="form-text text-muted">Help</small>
-</div>
+    <div class="input-group mb-3" aria-describedby="taskHelp">
+        <input type="text" asp-for="Title" name="Title" class="form-control" placeholder="Make a clean.." aria-label="Task content" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <input type="submit" class="btn btn-success"/>
+        </div>
+        <small id="taskHelp" class="form-text text-muted">Help</small>
+    </div>
 </form>
 
 <div class="album py-5 bg-light">
-  <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-           
-      @if (Model.Tasks.Count() != 0)
-      {
-        @foreach (var task in Model.Tasks)
-        {
-          <div class="col">
-            <div class="card shadow-sm">
-              <div class="card-body" style="background-color: @task.Color">
-                <p class="card-text"> @task.Title - @task.TaskList</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" onclick="openModal(@task.Id);" class="btn btn-sm btn-outline-secondary btn-open">Edit</button>
-                  </div>
-                  <small class="text-muted">@task.TaskPriority </small>
-                </div>
-              </div>
-            </div>
-          </div>
-        }
-      }
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+            @if (Model.Tasks.Count() != 0)
+            {
+                @foreach (var task in Model.Tasks)
+                {
+                    <div class="col" id="@task.Id">
+                        <div class="card shadow-sm">
+                            <div class="card-body" style="background-color: @task.Color">
+                                <p class="card-text"> @task.Title - @task.TaskList</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" onclick="deleteTask(@task.Id);" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                        <button type="button" onclick="openModal(@task.Id);" class="btn btn-sm btn-outline-secondary btn-open">Edit</button>
+                                    </div>
+                                    <small class="text-muted">@task.TaskPriority </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
     </div>
-  </div>
-   
 </div>
 
+
 <section class="modal hidden">
-  <div class="flex">
-    <img src="user.png" width="50px" height="50px" alt="user" />
-    <button class="btn-close">⨉</button>
-  </div>
-  <div>
-    <h3>Stay in touch</h3>
-    <p>
-      This is a dummy newsletter form so don't bother trying to test it. Not
-      that I expect you to, anyways. :)
-    </p>
-  </div>
-  <form id="modelForm" >
-    <input type="text" asp-for="Title" id="updateText" placeholder="Some text"/>
-    
-    <div class="form-group">
-      <label for="inputPriority">Select Priority</label>
-      <select id="inputPriority" name="PriorityId" class="form-control" asp-items="@Model.AllPriorities">
-      </select>
+    <div class="flex">
+        <button class="btn-close">⨉</button>
     </div>
-    
-    <div class="form-group">
-                    <label for="inputList">Select List</label>
-                    <select id="inputList" name="ListId" class="form-control" asp-items="@Model.AllLists">
-                    </select>
-                </div>
-  </form>
-  <button id="submitUpdate"  class="btn">Submit</button>
+    <div>
+        <h3>Update Task</h3>
+        
+    </div>
+    <form id="modelForm">
+        <input type="text" asp-for="Title" id="updateText" placeholder="Some text"/>
+
+        <div class="form-group">
+            <label for="inputPriority">Select Priority</label>
+            <select id="inputPriority" name="PriorityId" class="form-control" asp-items="@Model.AllPriorities">
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="inputList">Select List</label>
+            <select id="inputList" name="ListId" class="form-control" asp-items="@Model.AllLists">
+            </select>
+        </div>
+    </form>
+    <button id="submitUpdate" class="btn">Submit</button>
 </section>
 
 <div class="overlay hidden"></div>
@@ -96,6 +93,24 @@
    modal.classList.remove("hidden");
    overlay.classList.remove("hidden");
    }
+   
+   function deleteTask(id) {
+     
+         $.ajax({
+             type: 'GET',
+             url: `/home/deletetask/${id}`,
+             contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+             data: {id:id},
+             success: function(response) { },
+             error: function (XMLHttpRequest, response, errorThrown) {
+                 
+             },
+     
+         });
+         
+         var task = document.getElementById(id);
+         task.style.display = "none";
+     }
    
  
  const closeModal = function () {

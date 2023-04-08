@@ -19,6 +19,23 @@ public class HomeController : Controller
         _db = db;
     }
 
+    public async Task<IActionResult> DeleteTask(int? id)
+    {
+        try
+        {
+            Task task = await _db.Task.Where(t => t.Id == id).SingleOrDefaultAsync();
+            _db.Task.Remove(task);
+            await _db.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            return RedirectToAction("Index", "Home", new { message = ex.Message });
+        }
+        
+        return RedirectToAction("Index", "Home");
+
+    }
+
     public async Task<IActionResult> AddTask(string? Title)
     {
         User user = await _db.User.SingleOrDefaultAsync(u => u.Login == User.Identity.Name);
@@ -36,7 +53,7 @@ public class HomeController : Controller
         }
         catch (Exception ex)
         {
-            return RedirectToAction("Login", "Authenticate", new { message = ex.Message });
+            return RedirectToAction("Index", "Home", new { message = ex.Message });
         }
 
         return RedirectToAction("Index", "Home");
