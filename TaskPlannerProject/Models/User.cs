@@ -12,5 +12,6 @@ public class User
 
     public List<Goal> Goals { get; set; } = new();
     public List<Task> Tasks { get; set; } = new();
+    public List<Plan> Plans { get; set; } = new();
     public List<Role> Roles { get; set; } = new(); 
 }

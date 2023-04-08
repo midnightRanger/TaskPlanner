@@ -13,7 +13,6 @@ public class Plan
     public string? Title { get; set; }
     public string? Color { get; set; }
     public PlanList PlanList { get; set; }
-    
     public int UserId { get; set; }
     public User? User { get; set; }
 }

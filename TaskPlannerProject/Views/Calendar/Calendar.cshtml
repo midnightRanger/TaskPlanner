@@ -1,0 +1,52 @@
+@model TaskPlannerProject.Models.ViewModels.CalendarViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<head>
+    <link rel='stylesheet' href="~/css/calendar.css">
+    <script src='~/js/calendar.js'> </script> 
+</head>
+
+<div class="container">
+    <div id="calendar"></div>
+</div>
+
+<script>
+
+class Event {
+    constructor(desc, startDate, endDate) {
+        this.desc = desc;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+}
+
+var events = []
+
+var model = @Html.Raw(Json.Serialize(Model.events));
+
+
+console.log(model); 
+
+for (var i = 0; i < model.length; i++) {
+    
+    events.push(new Event(model[i].desc, new Date(model[i].startDateYear,
+     model[i].startDateMonth, model[i].startDateDay),
+     new Date(model[i].endDateYear, model[i].endDateMonth, model[i].endDateDay) ))
+}
+
+console.log(events)
+
+
+
+debugger; 
+var div = document.getElementById('calendar');
+var cal = new calendar(div, {
+	year: new Date().getFullYear(),
+	month: new Date().getMonth(),
+	events: events
+}); 
+</script>

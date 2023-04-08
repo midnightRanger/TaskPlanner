@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\TaskPlannerProject.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\css\\calendar.css",
+      "PackagePath": "staticwebassets\\css\\calendar.css"
+    },
+    {
       "Id": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\css\\modal.css",
       "PackagePath": "staticwebassets\\css\\modal.css"
     },
@@ -17,12 +21,24 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\css\\toastr.css",
+      "PackagePath": "staticwebassets\\css\\toastr.css"
+    },
+    {
       "Id": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\js\\calendar.js",
+      "PackagePath": "staticwebassets\\js\\calendar.js"
+    },
+    {
       "Id": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\js\\toastr.js",
+      "PackagePath": "staticwebassets\\js\\toastr.js"
     },
     {
       "Id": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\lib\\bootstrap\\LICENSE",

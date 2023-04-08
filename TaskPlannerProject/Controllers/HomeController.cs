@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using TaskPlannerProject.Models;
 using Microsoft.EntityFrameworkCore;
@@ -29,17 +31,16 @@ public class HomeController : Controller
         }
         catch (Exception ex)
         {
-            return RedirectToAction("Index", "Home", new { message = ex.Message });
+            return PartialView("Toastr", new Response() {Description = ex.Message, Data = ex.Data.ToString()});
         }
-        
-        return RedirectToAction("Index", "Home");
 
+        return PartialView("Toastr", new Response() {Description = "Task was deleted", Data = ""});
     }
 
     public async Task<IActionResult> AddTask(string? Title)
     {
         User user = await _db.User.SingleOrDefaultAsync(u => u.Login == User.Identity.Name);
-        if (Title == null) 
+        if (Title == null)
             return RedirectToAction("Index", "Home", new { message = "Fill the Title field!" });
 
         var model = new Task()
@@ -59,13 +60,34 @@ public class HomeController : Controller
         return RedirectToAction("Index", "Home");
     }
 
-    public async Task<IActionResult> Index(string? message)
+    public async Task<IActionResult> Logout()
+    {
+        HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        return RedirectToAction("Login", "Authenticate");
+    }
+
+    public async Task<IActionResult> Index(string? message, Task.SortState sortTask = Task.SortState.TitleAsc)
     {
         if (message != null)
             ModelState.AddModelError("", message);
 
         var author = await _db.User.Where(u => u.Login == User.Identity.Name).SingleOrDefaultAsync();
+
+        ViewData["IdSort"] = sortTask == Task.SortState.TitleAsc ? Task.SortState.TitleDesc : Task.SortState.TitleAsc;
+
+
         List<Task> tasks = await _db.Task.Where(t => t.UserId == author.Id).ToListAsync();
+
+        switch (sortTask)
+        {
+            case Task.SortState.TitleAsc:
+                tasks = tasks.OrderBy(t => t.Title).ToList();
+                break;
+            case Task.SortState.TitleDesc:
+                tasks = tasks.OrderByDescending(t => t.Title).ToList();
+                break;
+        }
+
 
         UpdateTaskViewModel model = new UpdateTaskViewModel();
         model.Tasks = tasks;
@@ -82,20 +104,36 @@ public class HomeController : Controller
         return View(model);
     }
 
+
     [HttpPost]
     public async Task<IActionResult> TaskUpdate(int id, UpdateTaskViewModel model)
     {
         if (model.Title == null)
-            return RedirectToAction("Index", "Home", new { message = "Fill the Title field!" });
-
+            return PartialView("Toastr", new Response() {Description = "Empty Title field!", Data = ""});
         var taskToUpdate = await _db.Task.FirstOrDefaultAsync(t => t.Id == id);
 
         if (taskToUpdate == null)
-            return RedirectToAction("Index", "Home", new { message = "Internal server error!" });
-
+            return PartialView("Toastr", new Response() {Description = "Internal server error!", Data = ""});
+        
         taskToUpdate.Title = model.Title;
         taskToUpdate.TaskList = (TaskList)model.ListId;
         taskToUpdate.TaskPriority = (TaskPriority)model.PriorityId;
+
+        switch (taskToUpdate.TaskPriority)
+        {
+            case TaskPriority.LOW:
+                taskToUpdate.Color = "#2CE453";
+                break;
+            case TaskPriority.MID:
+                taskToUpdate.Color = "#D5FC14";
+                break;
+            case TaskPriority.HIGH:
+                taskToUpdate.Color = "#F48727";
+                break;
+            case TaskPriority.CRITICAL:
+                taskToUpdate.Color = "#F7A3A3";
+                break;
+        }
 
         try
         {
@@ -104,11 +142,11 @@ public class HomeController : Controller
         }
         catch (Exception ex)
         {
-            return RedirectToAction("Login", "Authenticate", new { message = ex.Message });
+            return PartialView("Toastr", new Response() {Description = ex.Message, Data = ex.Data.ToString()});
         }
 
 
-        return RedirectToAction("Index", "Home");
+        return PartialView("Toastr", new Response() {Description = "Task was updated!", Data = ""});
     }
 
     public IActionResult Privacy()

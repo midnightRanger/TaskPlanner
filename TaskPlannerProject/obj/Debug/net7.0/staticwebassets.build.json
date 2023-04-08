@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/YzvPQqIoy0fAqSvq1MvDtkppvYXhNkETpNBMzV80lA=",
+  "Hash": "ybY6LvEWbuXk9cFOt9AXS7CggBgShNkQNHcu5i2dTYU=",
   "Source": "TaskPlannerProject",
   "BasePath": "_content/TaskPlannerProject",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\TaskPlannerProject.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\css\\calendar.css",
+      "SourceId": "TaskPlannerProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\",
+      "BasePath": "_content/TaskPlannerProject",
+      "RelativePath": "css/calendar.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\calendar.css"
     },
     {
       "Identity": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\css\\modal.css",
@@ -102,6 +119,23 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
+      "Identity": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\css\\toastr.css",
+      "SourceId": "TaskPlannerProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\",
+      "BasePath": "_content/TaskPlannerProject",
+      "RelativePath": "css/toastr.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\toastr.css"
+    },
+    {
       "Identity": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\favicon.ico",
       "SourceId": "TaskPlannerProject",
       "SourceType": "Discovered",
@@ -119,6 +153,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\js\\calendar.js",
+      "SourceId": "TaskPlannerProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\",
+      "BasePath": "_content/TaskPlannerProject",
+      "RelativePath": "js/calendar.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\calendar.js"
+    },
+    {
       "Identity": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\js\\site.js",
       "SourceId": "TaskPlannerProject",
       "SourceType": "Discovered",
@@ -134,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\js\\toastr.js",
+      "SourceId": "TaskPlannerProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\",
+      "BasePath": "_content/TaskPlannerProject",
+      "RelativePath": "js/toastr.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\toastr.js"
     },
     {
       "Identity": "C:\\Users\\Лев\\RiderProjects\\TaskPlannerProject\\TaskPlannerProject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",

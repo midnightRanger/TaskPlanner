@@ -15,6 +15,11 @@ public class Task
     
     public List<Tag> Tags { get; set; } = new();
     
+    public enum SortState
+    {
+        TitleAsc,
+        TitleDesc,
+    }
 }
 
 public enum TaskPriority
@@ -32,3 +37,4 @@ public enum TaskList
     Deligated,
     Completed
 }
+
